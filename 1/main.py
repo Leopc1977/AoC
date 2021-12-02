@@ -4,6 +4,7 @@ with open('input.txt') as file:
     for line in file:
         lines.append(int(line))
 
+#first star
 """currentNumber = lines[0]
 for i in range(1, len(lines)-1):
     nextNumber = lines[i]
@@ -11,28 +12,30 @@ for i in range(1, len(lines)-1):
         total = total + 1
     currentNumber = nextNumber"""
 
-nbLine = len(lines)#366 #3*366 = 1998
+#second star
+nbLine = len(lines)
 lstLetter=[]
 for i in range(nbLine):
     currentNumber = lines[i]
-    lstLetter.append([currentNumber])
     for k in range(len(lstLetter)):
         if len(lstLetter[k])<3:
             lstLetter[k].append(currentNumber)
-print(lstLetter[0])
-for k in range(len(lstLetter)):
+    lstLetter.append([currentNumber])
+
+for k in range(len(lstLetter)-1):
     if len(lstLetter[k])<3:
         lstLetter.pop(k)
-
-for k in range(8):
-    lstLetter[k] = sum(lstLetter[k])
+        
+#sum each letter
+for k in range(len(lstLetter)):
     print(lstLetter[k])
+    lstLetter[k] = sum(lstLetter[k])
 
 currentNumber = lstLetter[0]
-"""for i in range(1, len(lstLetter)-1):
+for i in range(1, len(lstLetter)-1):
     nextNumber = lstLetter[i]
     if currentNumber < nextNumber:
         total = total + 1
-    currentNumber = nextNumber"""
+    currentNumber = nextNumber
 
 print(total)
